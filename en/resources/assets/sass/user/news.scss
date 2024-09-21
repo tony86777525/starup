@@ -1,0 +1,95 @@
+@import "normalize";
+@import "utils/mixin";
+@import "common",
+        "pager",
+        "input";
+
+#News {
+    padding-top: 40px;
+}
+
+#NewsPage {
+    margin-top: 120px;
+}
+
+.NewsWord {
+    padding-top: 20px;
+}
+
+.NewsTitle {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.date {
+    font-size: 1rem;
+    color: #b2b2b2;
+    float: right;
+}
+
+.NewsContent {
+    font-size: 1rem;
+    color: #222831;
+    margin: 10px 0;
+}
+
+.NewsButton {
+    border: 0;
+    background-color: #222831;
+    color: #fff;
+    border-radius: 10px;
+    float: right;
+    font-size: rem;
+    padding: 5px 15px;
+}
+
+.NewsButton a {
+    color: #ffff;
+}
+
+.NewsTitle a {
+    color: #222831;
+}
+
+/* 平板 */
+@media (min-width: 601px) and (max-width: 768px) {
+    .NewsTitle {
+        font-size: 1rem;
+        padding-top: 15px;
+    }
+
+    .date {
+        font-size: 0.8rem;
+    }
+
+    .NewsContent {
+        font-size: 0.8rem;
+    }
+}
+
+/* 手機直 */
+@media (max-width: 425px) {
+    #News {
+        padding-top: 15px;
+    }
+
+    .NewsWord {
+        padding-top: 15px;
+    }
+
+    .NewsTitle {
+        font-size: 1.2rem;
+    }
+
+    .date {
+        float: left;
+    }
+
+    .NewsContent {
+        display: none;
+    }
+
+    .NewsButton {
+        font-size: 0.8rem;
+    }
+}

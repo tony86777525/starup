@@ -1,0 +1,22 @@
+.page {
+    a{
+        color:#222831;
+    }
+}
+.right{
+    float:right;
+    display: inline-block;
+}
+.left{
+    float:left;
+    display: inline-block;
+}
+.pagenumber{
+    position: absolute;
+    font-size: 1.2rem;
+    color:#222831;
+    left:50%;
+    margin-top: 10px;
+    display: inline-block;
+    font-weight: bold;
+}

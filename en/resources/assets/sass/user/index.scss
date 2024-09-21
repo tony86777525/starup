@@ -1,0 +1,172 @@
+@charset "utf-8";
+
+
+@import "normalize";
+@import "utils/mixin";
+@import "common";
+
+$path: "../../images/";
+
+.title5 {
+    a {
+        color: #212529;
+    }
+}
+
+.pic {
+    top: 15%;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+}
+
+.title3 {
+    cursor: pointer;
+    font-size: 24px;
+    color: #222831;
+    font-weight: bold;
+    margin-top: 17px;
+    height: 90px;
+    letter-spacing: 1px;
+
+    & > a {
+        color: #222831;
+        text-decoration: none;
+    }
+}
+
+.title4 {
+    font-size: 18px;
+    color: #222831;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.title5 {
+    padding: 15px 10px;
+    font-size: 21px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.title6 {
+    color: #5c5757;
+    font-size: 16px;
+    text-align: justify;
+    letter-spacing: 1px;
+    padding: 0 10px;
+}
+
+
+@media (min-width: 815px) {
+    .pic2 {
+        width: 100%;
+        height: 13rem;
+    }
+}
+/* 平板 */
+@media (min-width: 426px) and (max-width: 814px) {
+    .pic {
+        top: 15%;
+        width: 80px;
+        height: 80px;
+    }
+
+    .title3 {
+        height: 80px;
+        padding-top: 30px;
+    }
+
+    .pic2 {
+        width: 100%;
+        height: 10rem;
+    }
+
+    .title5 {
+        padding-top: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    .title6 {
+        font-size: 1rem;
+    }
+
+    .NewsButton {
+        border: 0;
+        background-color: #222831;
+        color: #fff;
+        border-radius: 10px;
+        float: right;
+    }
+}
+
+/* 手機直 */
+@media (max-width: 425px) {
+    .title3 {
+        font-size: 20px;
+        height: 50px;
+        padding-top: 15px;
+    }
+    .pic2 {
+        width: 100%;
+        height: 6rem;
+    }
+
+    .title4 {
+        font-size: 15px;
+    }
+
+    .title5 {
+        padding-top: 0.5rem;
+        font-size: 0.35rem;
+        color: #222831;
+        font-weight: bold;
+    }
+
+    .title6 {
+        padding-top: 0.8rem;
+        font-size: 0.05rem;
+        color: #393e46;
+    }
+
+    .Introduction {
+        max-width: 270px;
+    }
+    .NewsButton {
+        border: 0;
+        background-color: #222831;
+        color: #fff;
+        border-radius: 10px;
+        float: right;
+    }
+}
+
+@media (max-width: 375px) {
+    .IT {
+        min-width: 270px;
+    }
+    .NewsButton {
+        border: 0;
+        background-color: #222831;
+        color: #fff;
+        border-radius: 10px;
+        float: right;
+    }
+    .pic2 {
+        width: 100%;
+        height: 4rem;
+    }
+}
