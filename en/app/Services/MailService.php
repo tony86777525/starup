@@ -9,8 +9,13 @@ class MailService
     public static function sendMail($data)
     {
         try {
-            $postNoticeMailData = self::getPostNoticeMailData($data['email'], $data['name'], $data['number'], $data['recipient_name']);
-            Mail::send('email.post', $data->toArray(), function($message) use ($postNoticeMailData) {
+            $postNoticeMailData = self::getPostNoticeMailData(
+                $data['fromName'],
+                $data['fromEmail'],
+                $data['toName'],
+                $data['toEmail']
+            );
+            Mail::send('email.post', $data, function($message) use ($postNoticeMailData) {
                 $message->to($postNoticeMailData['toMail'], $postNoticeMailData['toName'])
                     ->subject($postNoticeMailData['subject']);
 
@@ -23,22 +28,20 @@ class MailService
         return false;
     }
 
-    private static function getPostNoticeMailData($email, $name, $number, $recipient_name)
+    private static function getPostNoticeMailData($fromName, $fromEmail, $toName, $toEmail)
     {
-        $subject = __('email.subject', ['number' => $number, 'recipient_name' => $recipient_name]);
-        $fromName = __('email.fromName');
-        $fromMail = env('MAIL_USERNAME');
-        $toName = $name;
+        $subject = 'New Comments from IEIT';
+        $toName = 'sme';
         $toMails = [
-            $email
+            $toEmail
         ];
 
         return [
             'subject' => $subject,
-            'fromMail' => $fromMail,
             'fromName' => $fromName,
-            'toMail' => $toMails,
+            'fromMail' => $fromEmail,
             'toName' => $toName,
+            'toMail' => $toMails,
         ];
     }
 }

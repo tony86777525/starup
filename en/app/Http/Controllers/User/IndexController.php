@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\News;
+use App\Services\MailService;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -22,48 +23,48 @@ class IndexController extends Controller
 
         return view('user.index', compact('news'));
     }
-    
+
     public function sendMail(Request $request)
     {
-        $data = $request->all();
+        $postData = $request->all();
 
         $statusCode = 200;
-        $response = [
-            'message' => '',
-            'type' => false,
-        ];
+        $response = '';
 
-        if (!empty($data)) {
-            if ($data['name'] != '' && $data['email'] != '' && $data['comments'] != '' && @$_COOKIE['mail'] != 'sent') {
-                $name = $data['name'];
-                $email = $data['email'];
-                $sub = "New Comments from IEIT";
-                $content = $data['comments'];
+        if (!empty($postData)) {
+            if (
+                $postData['name'] != ''
+                && $postData['email'] != ''
+                && $postData['comments'] != ''
+                && @$_COOKIE['mail'] != 'sent'
+            ) {
+                $data['fromName'] = $postData['name'];
+                $data['fromEmail'] = $postData['email'];
+                $data['toName'] = 'sme';
+                $data['toEmail'] = "sme@careernet.org.tw";
+                $data['comments'] = $postData['comments'];
 
-                mb_internal_encoding("utf-8");
-                // $to = "sme@careernet.org.tw";
-                $to = "tony86777525@gmail.com";
+                try {
+                    MailService::sendMail($data);
 
-                $subject = mb_encode_mimeheader("$sub", "utf-8");
-                $message = "$content";
-                $headers = "MIME-Version: 1.0\r\n";
-                $headers .= "Content-type: text/plain; charset=utf-8\r\n";
-                $headers .= "From:" . mb_encode_mimeheader("$name", "utf-8") . "<$email>\r\n";
+                    $response = 'Send Mail Success';
 
-                if (mail($to, $subject, $message, $headers)) {
                     setcookie("mail", "sent", time() + 60 * 3);
-                    $response['message'] = "Send a comment successfully";
-                    $response['type'] = true;
-                } else {
-                    $response['message'] = "Sending a comment failed. Please send again or contact us directly.";
+                    $response = "Send a comment successfully";
+                } catch (\Exception $e) {
+                    $statusCode = 500;
+
+                    $response = "Sending a comment failed. Please send again or contact us directly.";
                 }
             } elseif(isset($_COOKIE['mail']) && $_COOKIE['mail'] == 'sent') {
-                $response['message'] = "You have sent comment, try again later.";
+                $statusCode = 429;
+                $response = "You have sent comment, try again later.";
             } else {
-                $response['message'] = "Please input all fields";
+                $statusCode = 400;
+                $response = "Please input all fields";
             }
         }
 
-        return response()->json($response, $statusCode);
+        return response($response, $statusCode);
     }
 }
