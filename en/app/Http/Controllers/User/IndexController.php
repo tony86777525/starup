@@ -47,8 +47,6 @@ class IndexController extends Controller
                 try {
                     MailService::sendMail($data);
 
-                    $response = 'Send Mail Success';
-
                     setcookie("mail", "sent", time() + 60 * 3);
                     $response = "Send a comment successfully";
                 } catch (\Exception $e) {
