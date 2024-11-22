@@ -29,7 +29,10 @@ class IndexController extends Controller
         $postData = $request->all();
 
         $statusCode = 200;
-        $response = '';
+        $response = [
+            'type' => false,
+            'message' => '',
+        ];
 
         if (!empty($postData)) {
             if (
@@ -47,21 +50,20 @@ class IndexController extends Controller
                 try {
                     MailService::sendMail($data);
 
-                    $response = 'Send Mail Success';
-
                     setcookie("mail", "sent", time() + 60 * 3);
-                    $response = "Send a comment successfully";
+                    $response['message'] = "Send a comment successfully";
+                    $response['type'] = true;
                 } catch (\Exception $e) {
                     $statusCode = 500;
 
-                    $response = "Sending a comment failed. Please send again or contact us directly.";
+                    $response['message'] = "Sending a comment failed. Please send again or contact us directly.";
                 }
             } elseif(isset($_COOKIE['mail']) && $_COOKIE['mail'] == 'sent') {
                 $statusCode = 429;
-                $response = "You have sent comment, try again later.";
+                $response['message'] = "You have sent comment, try again later.";
             } else {
                 $statusCode = 400;
-                $response = "Please input all fields";
+                $response['message'] = "Please input all fields";
             }
         }
 

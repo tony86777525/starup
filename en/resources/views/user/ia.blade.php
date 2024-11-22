@@ -47,8 +47,8 @@
         <div class="row mt-4">
             <ul style="list-style: none; margin:0 auto;">
                 <li>Taiwan Startup Stadium : <a target="_blank" href="//www.startupstadium.tw/">www.startupstadium.tw</a></li>
-                <li>Taiwan Startup Terrace (Linkou): <a target="_blank" href="//www.startupterrace.tw/">www.startupterrace.tw</a></li>
-                <li>Taiwan Startup Terrace (Kaohsiung): <a target="_blank" href="////www.yawan-startup.tw/en/">www.yawan-startup.tw</a></li>
+                <li>Taiwan Startup Terrace (Linkou): <a target="_blank" href="//www.startupterrace.tw/en/">www.startupterrace.tw</a></li>
+                <li>Taiwan Startup Terrace (Kaohsiung): <a target="_blank" href="////www.startupterrace.tw/en/">www.startupterrace.tw</a></li>
                 <li>Taiwan Tech Arena : <a target="_blank" href="//www.taiwanarena.tech/">www.taiwanarena.tech</a></li>
                 <li>Anchor Taiwan : <a target="_blank" href="//www.anchortaiwan.com/">www.anchortaiwan.com</a></li>
                 <li>AppWorks : <a target="_blank" href="//appworks.tw/">appworks.tw</a></li>

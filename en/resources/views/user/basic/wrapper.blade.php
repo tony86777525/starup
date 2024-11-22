@@ -60,18 +60,23 @@
                 button.attr('disabled', true);
             },
             success: function (res) {
-                $('body').append(`<p class="success flash-message fade in">${res}<button type="button" class="close" aria-hidden="true">×</button></p>`);
-                setTimeout(() => {
-                    $('.flash-message').remove();
-                }, 3000)
+                if (res.type === true) {
+                    $('body').append(`<p class="success flash-message fade in">${res.responseJSON ? res.responseJSON.message : (res.message ?? 'Success!')}<button type="button" class="close" aria-hidden="true">×</button></p>`);
+                    setTimeout(() => {
+                        $('.flash-message').remove();
+                    }, 3000)
+                } else {
+                    $('body').append(`<p class="error flash-message fade in">${res.responseJSON ? res.responseJSON.message : (res.message ?? 'Error!')}<button type="button" class="close" aria-hidden="true">×</button></p>`);
+                    setTimeout(() => {
+                        $('.flash-message').remove();
+                    }, 3000)
+                }
             },
             complete: function () {
                 button.attr('disabled', false);
             },
-            error: function(jqXHR) {
-                let res = jqXHR.responseText;
-
-                $('body').append(`<p class="error flash-message fade in">${res}<button type="button" class="close" aria-hidden="true">×</button></p>`);
+            error: function(res) {
+                $('body').append(`<p class="error flash-message fade in">${res.responseJSON ? res.responseJSON.message : (res.message ?? 'Error!')}<button type="button" class="close" aria-hidden="true">×</button></p>`);
                 setTimeout(() => {
                     $('.flash-message').remove();
                 }, 3000)

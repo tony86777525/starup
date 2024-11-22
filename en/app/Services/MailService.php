@@ -8,29 +8,24 @@ class MailService
 {
     public static function sendMail($data)
     {
-        try {
-            $postNoticeMailData = self::getPostNoticeMailData(
-                $data['fromName'],
-                $data['fromEmail'],
-                $data['toName'],
-                $data['toEmail']
-            );
-            Mail::send('email.post', $data, function($message) use ($postNoticeMailData) {
-                $message->to($postNoticeMailData['toMail'], $postNoticeMailData['toName'])
-                    ->subject($postNoticeMailData['subject']);
+        $postNoticeMailData = self::getPostNoticeMailData(
+            $data['fromName'],
+            $data['fromEmail'],
+            $data['toName'],
+            $data['toEmail']
+        );
 
-                $message->from($postNoticeMailData['fromMail'], $postNoticeMailData['fromName']);
-            });
+        Mail::send('email.post', $data, function($message) use ($postNoticeMailData) {
+            $message->to($postNoticeMailData['toMail'], $postNoticeMailData['toName'])
+                ->subject($postNoticeMailData['subject']);
 
-            return true;
-        } catch (Exception $e) {}
-
-        return false;
+            $message->from($postNoticeMailData['fromMail'], $postNoticeMailData['fromName']);
+        });
     }
 
     private static function getPostNoticeMailData($fromName, $fromEmail, $toName, $toEmail)
     {
-        $subject = 'New Comments from IEIT';
+        $subject = 'New Comments from SPT';
         $toName = 'sme';
         $toMails = [
             $toEmail

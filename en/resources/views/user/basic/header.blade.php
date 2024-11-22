@@ -62,8 +62,8 @@
                                         <a class="dropdown-item" href="{{ route('user.cc') }}" hreflang="en">Chamber & Community</a>
                                     </ul>
                                 </li>
-                                <a class="dropdown-item" href="https://www.startupterrace.tw/" target="_blank">Startup Terrace Linkou</a>
-                                <a class="dropdown-item" href="https://www.yawan-startup.tw/en" target="_blank">Startup Terrace Kaohsiung</a>
+                                <a class="dropdown-item" href="https://www.startupterrace.tw/en/" target="_blank">Startup Terrace Linkou</a>
+                                <a class="dropdown-item" href="https://www.startupterrace.tw/en/" target="_blank">Startup Terrace Kaohsiung</a>
                                 <a class="dropdown-item" href="{{ route('user.innovation') }}" hreflang="en">Social Innovation</a>
                                 <a class="dropdown-item" href="https://www.startupislandtaiwan.info/" target="_blank">Startup Island Taiwan</a>
                             </ul>

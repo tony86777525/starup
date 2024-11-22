@@ -28,13 +28,13 @@
                         <div class="mb-2">Startup Terrace Linkou</div>
                         <div class="mb-2">TEL : +886-2-23692358</div>
                         <div class="mb-2">EMAIL : <a href="mailto: hello@startupterrace.tw" style="color: white;text-decoration: underline;">hello@startupterrace.tw</a></div>
-                        <div class="mb-2">WEB : <a href="//www.startupterrace.tw" target="_blank" style="color: white;text-decoration: underline;">www.startupterrace.tw</a></div>
+                        <div class="mb-2">WEB : <a href="//www.startupterrace.tw/en/" target="_blank" style="color: white;text-decoration: underline;">www.startupterrace.tw</a></div>
                     </div>
                     <div class="bottomTitle1 mt-3">
                         <div class="mb-2">Startup Terrace Kaohsiung</div>
                         <div class="mb-2">TEL : +886-7-3383827</div>
                         <div class="mb-2">EMAIL : <a href="mailto: hello@yawan-startup.tw" style="color: white;text-decoration: underline;">hello@yawan-startup.tw</a></div>
-                        <div class="mb-2">WEB : <a href="//www.yawan-startup.tw" target="_blank" style="color: white;text-decoration: underline;">www.yawan-startup.tw</a></div>
+                        <div class="mb-2">WEB : <a href="//www.startupterrace.tw/en/" target="_blank" style="color: white;text-decoration: underline;">www.startupterrace.tw</a></div>
                     </div>
                     <br><br>
                     <div class="row">
