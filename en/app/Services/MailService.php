@@ -17,6 +17,7 @@ class MailService
 
         Mail::send('email.post', $data, function($message) use ($postNoticeMailData) {
             $message->to($postNoticeMailData['toMail'], $postNoticeMailData['toName'])
+                ->cc(['368@careernet.org.tw'])
                 ->subject($postNoticeMailData['subject']);
 
             $message->from($postNoticeMailData['fromMail'], $postNoticeMailData['fromName']);
